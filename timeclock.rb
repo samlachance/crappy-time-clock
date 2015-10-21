@@ -43,6 +43,15 @@ class Employee
     puts "You punched out at #{@timeout}"
     puts "Enjoy your day off!"
   end
+
+  def beer
+    @beertime=Time.now.asctime
+    lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
+    lf.puts "#{@name.capitalize} had a beer at #{@beertime}!"
+    lf.puts "============================="
+    lf.close
+    puts "Please code responsibly"
+  end
 end
 
 # Asks the user what their name is.
@@ -65,6 +74,8 @@ if direction == "in"
   user_name.in(project)
 elsif direction == "out"
   user_name.out(project)
+elsif direction =="beer"
+  user_name.beer
 else
   puts "Invalid entry"
 end
