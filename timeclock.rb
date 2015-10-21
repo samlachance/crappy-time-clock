@@ -23,10 +23,10 @@ class Employee
   end
 
   # Obtains current time and date and writes it to a log file.
-  def in
+  def in(project)
     @timein = Time.now.asctime
     lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
-    lf.puts "#{@name.capitalize} clocked IN at #{@timein}."
+    lf.puts "#{@name.capitalize} clocked IN of #{project} at #{@timein}."
     lf.puts "============================="
     lf.close
     puts "You punched in at #{@timein}"
@@ -34,10 +34,10 @@ class Employee
   end
 
   # Obtains current time and date and writes it to a log file.
-  def out 
+  def out(project)
     @timeout=Time.now.asctime
     lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
-    lf.puts "#{@name.capitalize} clocked OUT at #{@timeout}."
+    lf.puts "#{@name.capitalize} clocked OUT of #{project} at #{@timeout}."
     lf.puts "============================="
     lf.close
     puts "You punched out at #{@timeout}"
@@ -52,15 +52,19 @@ user_name = gets.chomp
 # Creates new employee object with name that the user provided
 user_name = Employee.new("#{user_name}")
 
+# Asks the user what project they are working on.
+print "What project are you working on? "
+project = gets
+
 # Asks the user if they would like to clock in or out.
 print "In which direction would you like to clock? "
 direction = gets.chomp
 
 # Calls method to record clock in or clock out time
 if direction == "in"
-  user_name.in
+  user_name.in(project)
 elsif direction == "out"
-  user_name.out
+  user_name.out(project)
 else
   puts "Invalid entry"
 end
