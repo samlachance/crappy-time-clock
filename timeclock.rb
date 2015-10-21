@@ -24,8 +24,8 @@ class Employee
 
   # Obtains current time and date and writes it to a log file.
   def in
-    @timein = Time.now
-    lf = File.new("timelog.txt", "a")
+    @timein = Time.now.asctime
+    lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
     lf.puts "#{@name.capitalize} clocked IN at #{@timein}."
     lf.puts "============================="
     lf.close
@@ -35,8 +35,8 @@ class Employee
 
   # Obtains current time and date and writes it to a log file.
   def out 
-    @timeout=Time.now
-    lf = File.new("timelog.txt", "a")
+    @timeout=Time.now.asctime
+    lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
     lf.puts "#{@name.capitalize} clocked OUT at #{@timeout}."
     lf.puts "============================="
     lf.close
@@ -46,14 +46,14 @@ class Employee
 end
 
 # Asks the user what their name is.
-puts "Who are you?"
+print "Who are you? "
 user_name = gets.chomp
 
 # Creates new employee object with name that the user provided
 user_name = Employee.new("#{user_name}")
 
 # Asks the user if they would like to clock in or out.
-puts "In which direction would you like to clock?"
+print "In which direction would you like to clock? "
 direction = gets.chomp
 
 # Calls method to record clock in or clock out time
