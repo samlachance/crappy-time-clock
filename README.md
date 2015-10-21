@@ -1,1 +1,1 @@
-This is a simple timeclock application that records clock punches.
+This is Sam's crappy timeclock app. It barely works! Don't use it!
