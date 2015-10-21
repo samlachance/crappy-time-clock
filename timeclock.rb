@@ -26,7 +26,7 @@ class Employee
   def in(project)
     @timein = Time.now.asctime
     lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
-    lf.puts "#{@name.capitalize} clocked IN of #{project} at #{@timein}."
+    lf.puts "#{@name.capitalize} clocked INto #{project} at #{@timein}."
     lf.puts "============================="
     lf.close
     puts "You punched in at #{@timein}"
