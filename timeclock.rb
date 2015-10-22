@@ -80,4 +80,3 @@ elsif direction == "beer"
 else
   puts "Invalid entry"
 end
-
