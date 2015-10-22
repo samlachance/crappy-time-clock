@@ -51,7 +51,7 @@ class Employee
     lf.puts "#{@name.capitalize} had a beer on #{@beertime}!"
     lf.puts "============================="
     lf.close
-    puts "Please code responsibly"
+    puts "Please code responsibly."
   end
 end
 
