@@ -3,7 +3,7 @@ class Employee
   # Creates name variable and greets the user.
   def initialize (name)
     @name = name
-    puts "yo, #{@name.capitalize}"
+    puts "Yo, #{@name.capitalize}!"
   end
 
   # Displays current name.
@@ -44,10 +44,11 @@ class Employee
     puts "Enjoy your day off!"
   end
 
+  # Beer
   def beer
     @beertime=Time.now.asctime
     lf = File.new("/home/sam/Dropbox/timeclock/timelog.txt", "a")
-    lf.puts "#{@name.capitalize} had a beer at #{@beertime}!"
+    lf.puts "#{@name.capitalize} had a beer on #{@beertime}!"
     lf.puts "============================="
     lf.close
     puts "Please code responsibly"
@@ -69,12 +70,12 @@ project = gets
 print "In which direction would you like to clock? "
 direction = gets.chomp
 
-# Calls method to record clock in or clock out time
+# Calls method to record clock in or clock out time... Or beer.
 if direction == "in"
   user_name.in(project)
 elsif direction == "out"
   user_name.out(project)
-elsif direction =="beer"
+elsif direction == "beer"
   user_name.beer
 else
   puts "Invalid entry"
